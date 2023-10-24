@@ -1,5 +1,7 @@
-// TODO: Add the required header
-
+// Jemin Song
+// jeminsong@csu.fullerton.edu
+// @jeminsong
+// Partners: @jeminsong
 //
 // Program to calculate the date between two Gregorian dates.
 //
@@ -9,10 +11,11 @@
 #ifndef DATEDIFF_FUNCTIONS
 #define DATEDIFF_FUNCTIONS
 
-// TODO: Write the function prototype for JulianDay
+int JulianDay(int month, int day, int year);
 
-// TODO: Write the function prototype for DateDifference
+int DateDifference(int start_month, int start_day, int start_year,
+                   int end_month, int end_day, int end_year);
 
-// TODO: Write the function prototype for PrintDate
+void PrintDate(int month, int day, int year);
 
 #endif
