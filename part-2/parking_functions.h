@@ -1,4 +1,7 @@
-// TODO: Add the required header
+// Jemin Song
+// jeminsong0119@csu.fullerton.edu
+// @jeminsong
+// Partners: @jeminsong
 
 #ifndef PARKING_FUNCTIONS_H
 #define PARKING_FUNCTIONS_H

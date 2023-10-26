@@ -1,4 +1,7 @@
-// TODO: Add the required header
+// Jemin Song
+// jeminsong0119@csu.fullerton.edu
+// @jeminsong
+// Partners: @jeminsong
 
 #include <iostream>
 #include <string>
@@ -7,56 +10,69 @@
 #include "parking_functions.h"
 
 int main(int argc, char* argv[]) {
-  std::vector<std::string> arguments{argv, argv + argc};
+  std::vector<std::string> arguments =
+      std::vector<std::string>(argv, argv + argc);
 
-  // TODO: write an if statement that validates the number of arguments. If
-  // the number of arguments is invalid, print
-  // error: you must supply four arguments
-  // and return non-zero.
+  if (arguments.size() != 5) {
+    std::cout << "error: you must supply four arguments\n";
+    return 1;
+  }
+  std::string street = arguments.at(1);
+  std::string day = arguments.at(2);
 
-  // TODO: declare a string variable to hold the first argument (street)
+  int hour{0};
+  hour = std::stoi(arguments.at(3));
 
-  // TODO: declare a string variable to hold the second argument (day)
+  int minute{0};
+  minute = std::stoi(arguments.at(4));
 
-  // TODO: declare an int variable to hold the third argument (hour)
-  // HINT: use the std::stoi function to convert the string argument to an int.
+  if ((street == "ash") || (street == "beech") || (street == "cedar") ||
+      (street == "date") || (street == "elm")) {
+  } else {
+    std::cout << "error: invalid street\n";
+    return 1;
+  }
 
-  // TODO: declare an int variable to hold the fourth argument (minute)
-  // HINT: use the std::stoi function to convert the string argument to an int.
+  if ((day == "mon") || (day == "tue") || (day == "wed") || (day == "thu") ||
+      (day == "fri") || (day == "sat") || (day == "sun")) {
+  } else {
+    std::cout << "error: invalid day\n";
+    return 1;
+  }
 
-  // TODO: write an if statement that validates the street.
-  // If the street is invalid, print
-  // error: invalid street
-  // and return non-zero.
+  if ((hour < 0) || (hour > 23)) {
+    std::cout << "error: invalid hour\n";
+    return 1;
+  }
 
-  // TODO: write an if statement that validates the day.
-  // If the day is invalid, print
-  // error: invalid day
-  // and return non-zero.
+  if ((minute < 0) || (minute > 59)) {
+    std::cout << "error: invalid minute\n";
+    return 1;
+  }
 
-  // TODO: write an if statement that validates the hour.
-  // If the hour is invalid, print
-  // error: invalid hour
-  // and return non-zero.
+  bool parking = false;
+  if (street == "ash") {
+    parking = CanParkOnAsh(day, hour);
 
-  // TODO: write an if statement that validates the minute.
-  // If the minute is invalid, print
-  // error: invalid minute
-  // and return non-zero.
+  } else if (street == "beech") {
+    parking = CanParkOnBeech(day, hour);
 
-  // TODO: Declare a bool variable that will store true when parking is
-  // allowed, or false when not allowed.
+  } else if (street == "cedar") {
+    parking = CanParkOnCedar(day, hour);
 
-  // TODO: write an if-else-chain that uses the day to decide which
-  // function to call (CanParkOnAsh, etc.)
-  // Call the chosen function, and assign the return value into your bool
-  // variable.
+  } else if (street == "date") {
+    parking = CanParkOnDate(day, hour, minute);
 
-  // TODO: Write an if statement that prints
-  // allowed
-  // or 
-  // not allowed
-  // according to the value in your bool variable.
+  } else if (street == "elm") {
+    parking = CanParkOnElm(day, hour);
+  }
 
+  if (parking == true) {
+    std::cout << "allowed\n";
+    return 0;
+  } else {
+    std::cout << "not allowed\n";
+    return 0;
+  }
   return 0;
 }
